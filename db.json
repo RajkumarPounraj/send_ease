@@ -13,11 +13,11 @@
     "name": "typicode"
   }
 
-  "users": [
+ "users": [
     {
       "id": 1,
       "username": "testuser@gmail.com",
-      "password": "123456"
+      "password": "password123"
     },
     {
       "id": 2,
