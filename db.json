@@ -13,7 +13,6 @@
     "name": "typicode"
   }
 
-  {
   "users": [
     {
       "id": 1,
@@ -26,5 +25,4 @@
       "password": "password456"
     }
   ]
-}
 }
