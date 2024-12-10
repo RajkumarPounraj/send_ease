@@ -12,4 +12,19 @@
   "profile": {
     "name": "typicode"
   }
+
+  {
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "password123"
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "password456"
+    }
+  ]
+}
 }
