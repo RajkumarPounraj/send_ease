@@ -29,6 +29,24 @@
     }
   ],
 
+
+   "wallet": [
+    {
+      "id": 1,
+      "username": "testuser@gmail.com",
+      "name" : "Testuser",
+      "amount" : 1800.0
+      
+    },
+    {
+      "id": 2,
+      "username": "testaccount@gmail.com",
+       "name" : "John",
+      "amount" : 5000.0
+
+    }
+  ],
+
     "transactions": [
     {
       "id": 1,
