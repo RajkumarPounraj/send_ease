@@ -16,13 +16,13 @@
   "users": [
     {
       "id": 1,
-      "username": "user1",
-      "password": "password123"
+      "username": "testuser@gmail.com",
+      "password": "123456"
     },
     {
       "id": 2,
-      "username": "user2",
-      "password": "password456"
+      "username": "testaccount@gmail.com",
+      "password": "password@123"
     }
   ]
 }
