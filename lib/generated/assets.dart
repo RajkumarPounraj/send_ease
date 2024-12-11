@@ -10,5 +10,6 @@ class Assets {
   static const String fontsSplineSansMedium = 'assets/fonts/SplineSans-Medium.ttf';
   static const String fontsSplineSansRegular = 'assets/fonts/SplineSans-Regular.ttf';
   static const String imagesAppLogo = 'assets/images/app_logo.png';
+  static const String sendEase = '.env';
 
 }
