@@ -1,0 +1,426 @@
+@startuml
+set namespaceSeparator ::
+
+class "send_ease::component::bottom_sheet_modal_logout.dart::CustomLogoutBottomSheet" {
+  +CustomLogoutBottomSheetState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "send_ease::component::bottom_sheet_modal_logout.dart::CustomLogoutBottomSheet"
+
+class "send_ease::component::bottom_sheet_modal_logout.dart::CustomLogoutBottomSheetState" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "send_ease::component::bottom_sheet_modal_logout.dart::CustomLogoutBottomSheetState"
+
+class "send_ease::core::common_providers::common_provider.dart::CommonProvider" {
+  {static} +CommonProvider commonProvider
+  {static} +String environment
+  {static} +String appName
+  {static} +String baseUrl
+  {static} +String currencyStr
+  {static} +String loginViewSuccessText
+  {static} +String loginViewWelcomeText
+  {static} +String loginViewFailedText
+  {static} +String sendMoneyViewWelcomeText
+  {static} +String loginViewFullNameText
+  {static} +String loginViewPasswordText
+  {static} +String loginViewHintPasswordText
+  {static} +String loginViewHintCurrentPasswordText
+  {static} +String loginViewHintNewPasswordText
+  {static} +String loginViewHintConfirmPasswordText
+  {static} +String loginViewErrorPasswordText
+  {static} +String loginViewErrorEmptyEmailText
+  {static} +String loginViewErrorInvalidEmailText
+  {static} +String sendMoneyViewErrorEmptyAmountText
+  {static} +String strPleaseTryAgain
+  {static} +String strOfflineMsg
+  {static} +String strTransactionSuccessMsg
+  {static} +String strTransactionFailedMsg
+  {static} +String strSendMoneyBottomSheetNoButtonText
+  {static} +String strLogoutMsg
+  {static} +String strLogoutYesButtonText
+  {static} +String strLogoutNoButtonText
+}
+
+"send_ease::core::common_providers::common_provider.dart::CommonProvider" o-- "send_ease::core::common_providers::common_provider.dart::CommonProvider"
+
+class "send_ease::core::constants::route_const.dart::RoutePaths" {
+  {static} +String loginView
+  {static} +String myWalletView
+  {static} +String sendMoneyView
+  {static} +String transactionView
+}
+
+class "send_ease::core::constants::shared_preference_const.dart::PreferenceConst" {
+  {static} +String userId
+  {static} +String userLogin
+  {static} +String userName
+  {static} +String transactionDetail
+  {static} +String walletDetail
+}
+
+class "send_ease::core::services::api::api_helper.dart::ApiHandler" {
+  {static} -ApiHandler _instance
+  +Map<String, String> restHeader
+  +dynamic requestRestApi()
+}
+
+"send_ease::core::services::api::api_helper.dart::ApiHandler" o-- "send_ease::core::services::api::api_helper.dart::ApiHandler"
+
+class "send_ease::core::services::api::api_helper.dart::MethodType" {
+  +int index
+  {static} +List<MethodType> values
+  {static} +MethodType post
+  {static} +MethodType get
+}
+
+"send_ease::core::services::api::api_helper.dart::MethodType" o-- "send_ease::core::services::api::api_helper.dart::MethodType"
+"dart::core::Enum" <|-- "send_ease::core::services::api::api_helper.dart::MethodType"
+
+class "send_ease::core::utils::shared_preference_helper.dart::PreferenceHelper" {
+  {static} -dynamic _preference
+  {static} +dynamic getBool()
+  {static} +dynamic setBool()
+  {static} +dynamic getInt()
+  {static} +dynamic setInt()
+  {static} +dynamic getString()
+  {static} +dynamic setString()
+  {static} +dynamic getDouble()
+  {static} +dynamic setDouble()
+  {static} +dynamic setStringList()
+  {static} +dynamic getStringList()
+  {static} +dynamic saveTransactions()
+  {static} +dynamic loadTransactions()
+  {static} +dynamic clearTransactionDetails()
+  {static} +dynamic saveWalletModel()
+  {static} +dynamic geWalletModel()
+  {static} +dynamic clearWalletModel()
+  {static} +dynamic clearPreference()
+}
+
+class "send_ease::core::view_models::base_model.dart::BaseModel" {
+  -ViewState _state
+  +ViewState state
+  +void setState()
+}
+
+"send_ease::core::view_models::base_model.dart::BaseModel" o-- "send_ease::core::view_models::base_model.dart::ViewState"
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "send_ease::core::view_models::base_model.dart::BaseModel"
+
+class "send_ease::core::view_models::base_model.dart::ViewState" {
+  +int index
+  {static} +List<ViewState> values
+  {static} +ViewState busy
+  {static} +ViewState idle
+}
+
+"send_ease::core::view_models::base_model.dart::ViewState" o-- "send_ease::core::view_models::base_model.dart::ViewState"
+"dart::core::Enum" <|-- "send_ease::core::view_models::base_model.dart::ViewState"
+
+class "send_ease::custom_widget::placeholders.dart::BannerPlaceholder" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "send_ease::custom_widget::placeholders.dart::BannerPlaceholder"
+
+class "send_ease::custom_widget::placeholders.dart::TitlePlaceholder" {
+  +double width
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "send_ease::custom_widget::placeholders.dart::TitlePlaceholder"
+
+class "send_ease::custom_widget::placeholders.dart::ContentPlaceholder" {
+  +ContentLineType lineType
+  +Widget build()
+}
+
+"send_ease::custom_widget::placeholders.dart::ContentPlaceholder" o-- "send_ease::custom_widget::placeholders.dart::ContentLineType"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "send_ease::custom_widget::placeholders.dart::ContentPlaceholder"
+
+class "send_ease::custom_widget::placeholders.dart::ContentLineType" {
+  +int index
+  {static} +List<ContentLineType> values
+  {static} +ContentLineType twoLines
+  {static} +ContentLineType threeLines
+}
+
+"send_ease::custom_widget::placeholders.dart::ContentLineType" o-- "send_ease::custom_widget::placeholders.dart::ContentLineType"
+"dart::core::Enum" <|-- "send_ease::custom_widget::placeholders.dart::ContentLineType"
+
+class "send_ease::generated::assets.dart::Assets" {
+  {static} +String fonts7segment
+  {static} +String fontsInter18ptBold
+  {static} +String fontsInter18ptMedium
+  {static} +String fontsInter18ptRegular
+  {static} +String fontsSplineSansBold
+  {static} +String fontsSplineSansMedium
+  {static} +String fontsSplineSansRegular
+  {static} +String imagesAppLogo
+}
+
+class "send_ease::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "send_ease::main.dart::MyApp"
+
+class "send_ease::main.dart::SplashScreen" {
+  +SplashScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "send_ease::main.dart::SplashScreen"
+
+class "send_ease::main.dart::SplashScreenState" {
+  +CommonProvider commonProvider
+  +bool ifUserLogin
+  -AnimationController _animationController
+  -Animation<double> _animation
+  +void initState()
+  +dynamic startTime()
+  -dynamic _navigationPage()
+  +dynamic getUserLogin()
+  +Widget build()
+  +void dispose()
+}
+
+"send_ease::main.dart::SplashScreenState" o-- "send_ease::core::common_providers::common_provider.dart::CommonProvider"
+"send_ease::main.dart::SplashScreenState" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"send_ease::main.dart::SplashScreenState" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::State" <|-- "send_ease::main.dart::SplashScreenState"
+"flutter::src::widgets::ticker_provider.dart::SingleTickerProviderStateMixin" <|-- "send_ease::main.dart::SplashScreenState"
+
+class "send_ease::repository::auth_repository.dart::LoginRepository" {
+  -ApiHandler _apiServices
+  +dynamic userID
+  +dynamic callLogin()
+}
+
+"send_ease::repository::auth_repository.dart::LoginRepository" o-- "send_ease::core::services::api::api_helper.dart::ApiHandler"
+
+class "send_ease::repository::send_money_repository.dart::SendMoneyRepository" {
+  -ApiHandler _apiServices
+  +dynamic addTransactionDetail()
+}
+
+"send_ease::repository::send_money_repository.dart::SendMoneyRepository" o-- "send_ease::core::services::api::api_helper.dart::ApiHandler"
+
+class "send_ease::repository::transaction_repository.dart::TransactionRepository" {
+  -ApiHandler _apiServices
+  +dynamic getTransactionDetail()
+}
+
+"send_ease::repository::transaction_repository.dart::TransactionRepository" o-- "send_ease::core::services::api::api_helper.dart::ApiHandler"
+
+class "send_ease::repository::wallet_repository.dart::WalletRepository" {
+  -ApiHandler _apiServices
+  +dynamic userID
+  +dynamic getWalletDetail()
+}
+
+"send_ease::repository::wallet_repository.dart::WalletRepository" o-- "send_ease::core::services::api::api_helper.dart::ApiHandler"
+
+class "send_ease::route::login_view::model::get_login_model.dart::LoginDetail" {
+  +int id
+  +String username
+  +String password
+  +String name
+  +Map<String, dynamic> toJson()
+}
+
+class "send_ease::route::login_view::view::login_view.dart::LoginView" {
+  +LoginViewState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "send_ease::route::login_view::view::login_view.dart::LoginView"
+
+class "send_ease::route::login_view::view::login_view.dart::LoginViewState" {
+  -GlobalKey<FormState> _keyForLogin
+  -TextEditingController _userNameTextController
+  -TextEditingController _passwordTextController
+  -GlobalKey<ScaffoldState> _scaffoldKey
+  +bool loader
+  +bool passwordVisible
+  -List<ConnectivityResult> _connectionStatus
+  -Connectivity _connectivity
+  -StreamSubscription<List<ConnectivityResult>> _connectivitySubscription
+  +void initState()
+  +dynamic initConnectivity()
+  -dynamic _updateConnectionStatus()
+  +void dispose()
+  +Widget build()
+  +dynamic buildLoginForm()
+}
+
+"send_ease::route::login_view::view::login_view.dart::LoginViewState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"send_ease::route::login_view::view::login_view.dart::LoginViewState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"send_ease::route::login_view::view::login_view.dart::LoginViewState" o-- "flutter::src::widgets::framework.dart::GlobalKey<ScaffoldState>"
+"send_ease::route::login_view::view::login_view.dart::LoginViewState" o-- "connectivity_plus::connectivity_plus.dart::Connectivity"
+"send_ease::route::login_view::view::login_view.dart::LoginViewState" o-- "dart::async::StreamSubscription<List<ConnectivityResult>>"
+"flutter::src::widgets::framework.dart::State" <|-- "send_ease::route::login_view::view::login_view.dart::LoginViewState"
+
+class "send_ease::route::login_view::view_model::login_view_model.dart::LoginViewModel" {
+  +bool login
+  +LoginRepository loginRepository
+  +List<LoginDetail> loginDetail
+  +dynamic callLogin()
+}
+
+"send_ease::route::login_view::view_model::login_view_model.dart::LoginViewModel" o-- "send_ease::repository::auth_repository.dart::LoginRepository"
+"send_ease::core::view_models::base_model.dart::BaseModel" <|-- "send_ease::route::login_view::view_model::login_view_model.dart::LoginViewModel"
+
+class "send_ease::route::my_wallet_view::model::get_wallet_response.dart::WalletResponseDetail" {
+  +int? id
+  +String? username
+  +String? name
+  +dynamic amount
+  +Map<String, dynamic> toJson()
+}
+
+class "send_ease::route::my_wallet_view::view::wallet_view.dart::MyWalletView" {
+  +MyWalletViewState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "send_ease::route::my_wallet_view::view::wallet_view.dart::MyWalletView"
+
+class "send_ease::route::my_wallet_view::view::wallet_view.dart::MyWalletViewState" {
+  +bool priceVisible
+  -List<ConnectivityResult> _connectionStatus
+  -Connectivity _connectivity
+  -StreamSubscription<List<ConnectivityResult>> _connectivitySubscription
+  +void initState()
+  +dynamic initConnectivity()
+  -dynamic _updateConnectionStatus()
+  +dynamic fetchWalletDetailList()
+  +void dispose()
+  +Widget build()
+  +dynamic buildBody()
+  -dynamic _shimmerLoadingView()
+  +dynamic buildWalletDetail()
+}
+
+"send_ease::route::my_wallet_view::view::wallet_view.dart::MyWalletViewState" o-- "connectivity_plus::connectivity_plus.dart::Connectivity"
+"send_ease::route::my_wallet_view::view::wallet_view.dart::MyWalletViewState" o-- "dart::async::StreamSubscription<List<ConnectivityResult>>"
+"flutter::src::widgets::framework.dart::State" <|-- "send_ease::route::my_wallet_view::view::wallet_view.dart::MyWalletViewState"
+
+class "send_ease::route::my_wallet_view::view_model::wallet_view_model.dart::WalletViewModel" {
+  +WalletRepository walletRepository
+  +WalletResponseDetail? walletDetail
+  -bool _isOnline
+  +dynamic callWalletDetails()
+  -dynamic _loadWalletDetail()
+}
+
+"send_ease::route::my_wallet_view::view_model::wallet_view_model.dart::WalletViewModel" o-- "send_ease::repository::wallet_repository.dart::WalletRepository"
+"send_ease::route::my_wallet_view::view_model::wallet_view_model.dart::WalletViewModel" o-- "send_ease::route::my_wallet_view::model::get_wallet_response.dart::WalletResponseDetail"
+"send_ease::core::view_models::base_model.dart::BaseModel" <|-- "send_ease::route::my_wallet_view::view_model::wallet_view_model.dart::WalletViewModel"
+
+class "send_ease::route::send_money_view::model::get_send_money_response.dart::SendMoneyResponseDetail" {
+  +String? date
+  +String? description
+  +dynamic amount
+  +int? id
+  +Map<String, dynamic> toJson()
+}
+
+class "send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyView" {
+  +SendMoneyViewState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyView"
+
+class "send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyViewState" {
+  -GlobalKey<FormState> _keyForSendMoney
+  -TextEditingController _userAmountTextController
+  +bool loader
+  -List<ConnectivityResult> _connectionStatus
+  -Connectivity _connectivity
+  -StreamSubscription<List<ConnectivityResult>> _connectivitySubscription
+  +void initState()
+  +dynamic initConnectivity()
+  -dynamic _updateConnectionStatus()
+  +void dispose()
+  +Widget build()
+  -dynamic _sendMoneyForm()
+  +dynamic showBottomSheetForStatus()
+}
+
+"send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyViewState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyViewState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyViewState" o-- "connectivity_plus::connectivity_plus.dart::Connectivity"
+"send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyViewState" o-- "dart::async::StreamSubscription<List<ConnectivityResult>>"
+"flutter::src::widgets::framework.dart::State" <|-- "send_ease::route::send_money_view::view::send_money_view.dart::SendMoneyViewState"
+
+class "send_ease::route::send_money_view::view_model::send_money_view_model.dart::SendMoneyViewModel" {
+  +bool sendMoneyLoad
+  +SendMoneyRepository sendMoneyRepository
+  +dynamic callAddTransaction()
+}
+
+"send_ease::route::send_money_view::view_model::send_money_view_model.dart::SendMoneyViewModel" o-- "send_ease::repository::send_money_repository.dart::SendMoneyRepository"
+"send_ease::core::view_models::base_model.dart::BaseModel" <|-- "send_ease::route::send_money_view::view_model::send_money_view_model.dart::SendMoneyViewModel"
+
+class "send_ease::route::transaction_view::model::get_transaction_detail_model.dart::TransactionDetail" {
+  +int id
+  +String date
+  +int amount
+  +String description
+  +Map<String, dynamic> toJson()
+}
+
+class "send_ease::route::transaction_view::view::transaction_view.dart::TransactionView" {
+  +TransactionViewState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "send_ease::route::transaction_view::view::transaction_view.dart::TransactionView"
+
+class "send_ease::route::transaction_view::view::transaction_view.dart::TransactionViewState" {
+  -GlobalKey<AnimatedListState> _notificationListKey
+  -List<ConnectivityResult> _connectionStatus
+  -Connectivity _connectivity
+  -StreamSubscription<List<ConnectivityResult>> _connectivitySubscription
+  +void initState()
+  +dynamic initConnectivity()
+  -dynamic _updateConnectionStatus()
+  +dynamic fetchTransactionList()
+  +void dispose()
+  +Widget build()
+  +dynamic buildView()
+  -dynamic _shimmerView()
+  +dynamic buildTransactionList()
+  +dynamic buildEmptyView()
+}
+
+"send_ease::route::transaction_view::view::transaction_view.dart::TransactionViewState" o-- "flutter::src::widgets::framework.dart::GlobalKey<AnimatedListState>"
+"send_ease::route::transaction_view::view::transaction_view.dart::TransactionViewState" o-- "connectivity_plus::connectivity_plus.dart::Connectivity"
+"send_ease::route::transaction_view::view::transaction_view.dart::TransactionViewState" o-- "dart::async::StreamSubscription<List<ConnectivityResult>>"
+"flutter::src::widgets::framework.dart::State" <|-- "send_ease::route::transaction_view::view::transaction_view.dart::TransactionViewState"
+
+class "send_ease::route::transaction_view::view_model::transaction_view_model.dart::TransactionViewModel" {
+  +bool isLoading
+  +TransactionRepository transactionRepository
+  -bool _isOnline
+  +List<TransactionDetail> transactionList
+  +dynamic callTransactionDetail()
+  -dynamic _loadTransactions()
+}
+
+"send_ease::route::transaction_view::view_model::transaction_view_model.dart::TransactionViewModel" o-- "send_ease::repository::transaction_repository.dart::TransactionRepository"
+"send_ease::core::view_models::base_model.dart::BaseModel" <|-- "send_ease::route::transaction_view::view_model::transaction_view_model.dart::TransactionViewModel"
+
+abstract class "send_ease::route_setup.dart::RouterViews" {
+  {static} +Route<dynamic> generateRoute()
+}
+
+class "send_ease::themes::theme.dart::CustomAppTheme" {
+  {static} +CustomAppTheme customAppTheme
+  {static} +ThemeData lightAppTheme
+  {static} +String interBold
+}
+
+"send_ease::themes::theme.dart::CustomAppTheme" o-- "send_ease::themes::theme.dart::CustomAppTheme"
+"send_ease::themes::theme.dart::CustomAppTheme" o-- "flutter::src::material::theme_data.dart::ThemeData"
+
+
+@enduml
